@@ -1,9 +1,7 @@
 package com.taskagile.domain.model.user;
 
-import org.slf4j.LoggerFactory;
-
 import com.taskagile.domain.model.user.events.UserRegisteredEvent;
-
+import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;

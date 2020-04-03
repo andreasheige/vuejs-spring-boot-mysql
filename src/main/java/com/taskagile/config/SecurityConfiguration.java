@@ -1,5 +1,12 @@
 package com.taskagile.config;
 
+import javax.swing.text.PasswordView;
+
+import com.taskagile.web.apis.authenticate.AuthenticationFilter;
+import com.taskagile.web.apis.authenticate.SimpleAuthenticationFailureHandler;
+import com.taskagile.web.apis.authenticate.SimpleAuthenticationSuccessHandler;
+import com.taskagile.web.apis.authenticate.SimpleLogoutSuccessHandler;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -38,5 +45,33 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
     public void configure(WebSecurity web){
         web.ignoring().antMatchers("/static/**", "/js/**", "/css/**", "/images/**", "/favicon.ico");
     }
+    @Bean
+    public PasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+  public AuthenticationFilter authenticationFilter() throws Exception {
+    AuthenticationFilter authenticationFilter = new AuthenticationFilter();
+    authenticationFilter.setAuthenticationSuccessHandler(authenticationSuccessHandler());
+    authenticationFilter.setAuthenticationFailureHandler(authenticationFailureHandler());
+    authenticationFilter.setAuthenticationManager(authenticationManagerBean());
+    return authenticationFilter;
+  }
+
+  @Bean
+  public AuthenticationSuccessHandler authenticationSuccessHandler(){
+      return new SimpleAuthenticationSuccessHandler();
+  }
+
+  @Bean
+  public AuthenticationFailureHandler authenticationFailureHandler(){
+    return new  SimpleAuthenticationFailureHandler();
+  }
+
+  @Bean
+  public LogoutSuccessHandler logoutSuccessHandler(){
+      return new SimpleLogoutSuccessHandler();
+  }
 
 }

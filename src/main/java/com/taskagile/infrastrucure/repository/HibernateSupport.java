@@ -1,4 +1,4 @@
-package com.taskagile.infrastructure.repository;
+package com.taskagile.infrastrucure.repository;
 
 import org.hibernate.Session;
 import javax.persistence.EntityManager;

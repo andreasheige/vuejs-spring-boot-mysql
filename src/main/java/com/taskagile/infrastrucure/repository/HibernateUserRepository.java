@@ -1,4 +1,4 @@
-package com.taskagile.infrastructure.repository;
+package com.taskagile.infrastrucure.repository;
 
 import com.taskagile.domain.model.user.User;
 import com.taskagile.domain.model.user.UserRepository;

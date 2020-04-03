@@ -40,5 +40,4 @@ public class ApiResult extends HashMap<String, Object> {
         this.put(key, value);
         return this;
     }
-
 }

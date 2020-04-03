@@ -6,7 +6,6 @@ import javax.persistence.*;
 
 import com.taskagile.domain.common.model.AbstractBaseEntity;
 
-
 @Entity
 @Table(name = "user")
 public class User extends AbstractBaseEntity {
@@ -52,6 +51,12 @@ public class User extends AbstractBaseEntity {
         user.createdDate = new Date();
         return user;
     }
+    
+    public void updateName(String firstName, String lastName){
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
     public Long getId(){
         return id;
     }

@@ -53,6 +53,7 @@ public class RegistrationCommand {
         return "RegistrationCommand{" + 
         "username='" + username + '\'' +
         ", emailAddress='" + emailAddress + '\'' +
-        ", password='" + password + '\'' + '}';
+        ", password='" + password + '\'' + 
+        '}';
     }
 }

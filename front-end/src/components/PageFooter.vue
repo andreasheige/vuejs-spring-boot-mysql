@@ -2,9 +2,9 @@
   <footer class="footer">
     <span class="copyright">&copy; 2020 Andreas Heige</span>
     <ul class="footer-links list-inline float-right">
-        <li class="list-inline-item"><a href="#">About</a></li>
-        <li class="list-inline-item"><a href="#">Terms of Servicce</a></li>
-        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+        <li class="list-inline-item"><a href="#">{{ $t("pageFooter.about") }}</a></li>
+        <li class="list-inline-item"><a href="#">{{ $t("pageFooter.termOfService" )}}</a></li>
+        <li class="list-inline-item"><a href="#">{{ $t("pageFooter.rivacyPolicy") }}</a></li>
         <li class="list-inline-item"><a href="https://github.com/andreasheige" target="_blank">Andreas Heige @ Github</a></li>
     </ul>
   </footer>
@@ -33,5 +33,4 @@ export default {
         color: #666;
     }
 }
-
 </style>

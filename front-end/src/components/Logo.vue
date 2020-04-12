@@ -1,7 +1,7 @@
 <template>
     <div class="logo-wrapper">
         <img class="logo" src="/static/images/logo.png">
-        <div class="tagline">Open source task managment tool</div>
+        <div class="tagline">{{ $t("logo.tagline") }}</div>
     </div>
 </template>
 
@@ -15,10 +15,12 @@ export default {
 .logo-wrapper {
   text-align: center;
   margin-bottom: 40px;
+
   .tagline {
     line-height: 180%;
     color: #666;
   }
+
   .logo {
     max-width: 150px;
     margin: 0 auto;

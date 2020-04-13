@@ -50,51 +50,57 @@ import CreateTeamModal from '@/modals/CreateTeamModal.vue'
 import { mapGetters } from 'vuex'
 
 export default {
-    name: 'HomePage',
-    data() {
-        return {
-            selectedTeamId: 0
-        }
-    },
-    computed: {
-        ...mapGetters([
-            'persoanalBoards',
-            'teamBoards'
-        ])
-    },
-    components: {
-        PageHeader,
-        CreateBoardModal,
-        CreateTeamModal
-    },
-    methods: {
-        openBoard (board) {
-            this.$router.push({name: 'board', params: {boardId: board.id}})
-        },
-        createBoard (team) {
-            this.selectedTeamId = team ? team.id : 0
-            $('#createdBoardModal').modal('show')
-        },
-        createTeam () {
-            $('#createTeamModal').modal('show')
-        },
-        onBoardCreated (boardId) {
-            this.$router.push({name: 'board', params: {boardId: boardId}})
-        }
+  name: 'HomePage',
+  data () {
+    return {
+      selectedTeamId: 0
     }
+  },
+  computed: {
+    ...mapGetters([
+      'personalBoards',
+      'teamBoards'
+    ])
+  },
+  components: {
+    PageHeader,
+    CreateBoardModal,
+    CreateTeamModal
+  },
+  methods: {
+    openBoard (board) {
+      this.$router.push({name: 'board', params: {boardId: board.id}})
+    },
+    createBoard (team) {
+      this.selectedTeamId = team ? team.id : 0
+      $('#createBoardModal').modal('show')
+    },
+    createTeam () {
+      $('#createTeamModal').modal('show')
+    },
+    onBoardCreated (boardId) {
+      this.$router.push({name: 'board', params: {boardId: boardId}})
+    }
+  }
 }
 </script>
+
 <style lang="scss" scoped>
 .boards-container {
   padding: 0 35px;
+
   h2 {
     font-size: 18px;
     margin-bottom: 15px;
     font-weight: 400;
   }
+
   .boards-section {
     margin: 30px 10px;
+
     .boards {
+      margin-top: -20px;
+
       .board {
         width: 270px;
         height: 110px;
@@ -103,10 +109,13 @@ export default {
         color: #fff;
         padding: 15px;
         margin-right: 10px;
+        margin-top: 20px;
         cursor: pointer;
+
         h3 {
           font-size: 16px;
         }
+
         p {
           line-height: 1.2;
           font-size: 90%;
@@ -114,6 +123,7 @@ export default {
           color: rgba(255, 255, 255, 0.70)
         }
       }
+
       .add {
         background-color: #f4f4f4;
         color: #666;
@@ -123,6 +133,7 @@ export default {
       }
     }
   }
+
   .create-team-wrapper {
     .btn-link {
       color: #666;

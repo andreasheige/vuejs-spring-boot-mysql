@@ -130,6 +130,4 @@ describe ('LoginPage.vue', () => {
     wrapper.vm.submitForm()
     expect(authenticateSpy).not.HaveBeenCalled()
   })
-
-
 })

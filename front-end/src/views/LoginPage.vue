@@ -36,10 +36,11 @@ import { required } from 'vuelidate/lib/validators'
 import authenticationService from '@/services/authentication'
 import Logo from '@/components/Logo.vue'
 import PageFooter from '@/components/PageFooter.vue'
+import notify from '@/utils/notify'
 
 export default {
   name: 'LoginPage',
-  data: function(){
+  data: function () {
     return {
       form: {
         username: '',
@@ -54,7 +55,7 @@ export default {
   },
   validations: {
     form: {
-      username : {
+      username: {
         required
       },
       password: {
@@ -65,13 +66,15 @@ export default {
   methods: {
     submitForm () {
       this.$v.$touch()
-      if (this.$v.$invalid){
+      if (this.$v.$invalid) {
         return
       }
 
       authenticationService.authenticate(this.form).then(() => {
         this.$router.push({name: 'home'})
-      }).catch ((error) => {
+        this.$bus.$emit('authenticated')
+        notify.closeAll()
+      }).catch((error) => {
         this.errorMessage = error.message
       })
     }
@@ -79,7 +82,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scooped>
+<style lang="scss" scoped>
 .links {
   margin: 30px 0 50px 0;
   text-align: center;
